@@ -176,36 +176,23 @@
       enemies.forEach(function (enemy, index) {
         enemy_us = "u";
         enemy_lr = 1;
-        console.log(enemy.x, enemy.y);
         if (enemy.y === 50) {
           enemy_us = "s";
         }
         if (enemy.x < 0) {
           enemy_lr = -1;
         }
-        console.log(
-          enemy_lr,
-          lr,
-          enemy_us,
-          attack.us,
-          enemy.shape,
-          attack.shape,
-          enemy.color,
-          attack.color
-        );
         if (
           enemy_lr == lr &&
           enemy_us == attack.us &&
           enemy.shape == attack.shape &&
           enemy.color == attack.color
         ) {
-          console.log("success");
           score++;
           removeId.push(index);
           return;
         }
       });
-      console.log("a");
     };
 
     let loop = 0;
@@ -257,7 +244,7 @@
       removeId = [];
       loop++;
       var id = setTimeout(game, 50);
-      if (loop > 400 || life == 0) {
+      if (loop > 1000 || life == 0) {
         clearTimeout(id);
       }
     };

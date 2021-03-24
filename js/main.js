@@ -103,22 +103,37 @@
 
   {
     let loop = 0;
+    let removeId = [];
     const game = () => {
       ctx.clearRect(-150, -100, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(251, 154, 196, 0.3)";
+      ctx.fillRect(-20, -100, 40, 200);
       if (loop % 20 == 0) {
         addEnemy();
       }
-      enemies.forEach(function (enemy) {
+      enemies.forEach(function (enemy, index) {
         enemy.draw();
         if (enemy.x < 0) {
-          enemy.x += 2;
+          if (enemy.x >= -30) {
+            removeId.push(0);
+          } else {
+            enemy.x += 2;
+          }
         } else {
-          enemy.x -= 2;
+          if (enemy.x <= 30) {
+            removeId.push(0);
+          } else {
+            enemy.x -= 2;
+          }
         }
       });
+      removeId.forEach(function (id, index) {
+        enemies.splice(id, 1);
+      });
+      removeId = [];
       loop++;
       var id = setTimeout(game, 50);
-      if (loop > 100) {
+      if (loop > 400) {
         clearTimeout(id);
       }
     };

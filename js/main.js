@@ -52,13 +52,6 @@
     }
   }
 
-  // let view = new Enemy(10, 10, "circle", "red");
-  // view.draw();
-  // view = new Enemy(-50, 30, "square", "green");
-  // view.draw();
-  // view = new Enemy(-50, 60, "triangle", "blue");
-  // view.draw();
-
   let enemies = [];
 
   const addEnemy = () => {
@@ -67,7 +60,6 @@
     let shape;
     let color;
     let random = Math.floor(Math.random() * 36);
-    console.log(random);
     if (random % 2 == 0) {
       lr = -150;
       random /= 2;
@@ -100,6 +92,32 @@
     }
     enemies.push(new Enemy(lr, height, shape, color));
   };
+
+  let attack = { shape: "circle", color: "red", us: "u" };
+  document.getElementById("us-u").addEventListener("click", () => {
+    attack.us = "u";
+  });
+  document.getElementById("us-s").addEventListener("click", () => {
+    attack.us = "s";
+  });
+  document.getElementById("color-r").addEventListener("click", () => {
+    attack.color = "red";
+  });
+  document.getElementById("color-g").addEventListener("click", () => {
+    attack.color = "green";
+  });
+  document.getElementById("color-b").addEventListener("click", () => {
+    attack.color = "blue";
+  });
+  document.getElementById("shape-c").addEventListener("click", () => {
+    attack.shape = "circle";
+  });
+  document.getElementById("shape-t").addEventListener("click", () => {
+    attack.shape = "triangle";
+  });
+  document.getElementById("shape-s").addEventListener("click", () => {
+    attack.shape = "square";
+  });
 
   {
     let loop = 0;

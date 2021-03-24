@@ -14,6 +14,10 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
+    <link
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
     <title>ActionGame</title>
     <!-- <link rel="stylesheet" href="css/styles.css" /> -->
@@ -41,9 +45,45 @@
         </canvas>
       </div>
       <div
-        class="row"
+        class="row com"
         style="height: 32vh; background-color: rgb(99, 23, 30)"
-      ></div>
+      >
+        <div class="col-3 bg-dark">
+          <div id="us-u" class="row ic" style="height: 8vh">
+            <i class="fas fa-arrow-up" style="margin: 0 auto"></i>
+          </div>
+          <div id="shape-t" class="row ic bg-primary" style="height: 8vh">
+            <i class="fas fa-caret-up fa-3x" style="margin: 0 auto"></i>
+          </div>
+          <div id="shape-c" class="row ic" style="height: 8vh">
+            <i class="fas ic fa-circle" style="margin: 0 auto"></i>
+          </div>
+          <div id="shape-s" class="row ic bg-primary" style="height: 8vh">
+            <i class="fas fa-square" style="margin: 0 auto"></i>
+          </div>
+        </div>
+        <div class="col-6 bg-info">
+          <div class="row ic" style="height: 22vh;">
+            <canvas width="90px"
+            height="90px"
+            style="margin: auto; background-color: bisque">
+            canvas not supported.
+            </canvas>
+          </div>
+          <div class="row bg-warning" style="height: 10vh;"">
+            <div class="col-6 ic"><i class="fas fa-arrow-left" style="margin: 0 auto"></i></div>
+            <div class="col-6 ic"><i class="fas fa-arrow-right" style="margin: 0 auto"></i></div>
+          </div>
+        </div>
+        <div id="us-s" class="col-3 bg-primary">
+          <div class="row ic" style="height: 8vh">
+            <i class="fas fa-arrow-down" style="margin: 0 auto"></i>
+          </div>
+          <div id="color-r" class="row" style="height: 8vh; background-color: red"></div>
+          <div id="color-g" class="row" style="height: 8vh; background-color: green"></div>
+          <div id="color-b" class="row" style="height: 8vh; background-color: blue"></div>
+        </div>
+      </div>
     </main>
     <footer style="height: 4vh; background-color: antiquewhite"></footer>
     <script

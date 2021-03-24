@@ -33,10 +33,14 @@
       <div class="row" style="height: 20vh; background-color: aqua"></div>
       <div
         class="row"
-        style="height: 40vh; background-color: rgb(121, 62, 118)"
+        style="
+          height: 40vh;
+          background-color: rgb(121, 62, 118);
+          border-bottom: solid 2px;
+        "
       >
         <canvas
-          class="view"
+          id="canvas1"
           width="300px"
           height="200px"
           style="margin: auto; background-color: bisque"
@@ -44,18 +48,15 @@
           canvas not supported.
         </canvas>
       </div>
-      <div
-        class="row com"
-        style="height: 32vh; background-color: rgb(99, 23, 30)"
-      >
-        <div class="col-3 bg-dark">
+      <div class="row com" style="height: 32vh">
+        <div class="col-3 bg-primary">
           <div id="us-u" class="row ic" style="height: 8vh">
             <i class="fas fa-arrow-up" style="margin: 0 auto"></i>
           </div>
           <div id="shape-t" class="row ic bg-primary" style="height: 8vh">
             <i class="fas fa-caret-up fa-3x" style="margin: 0 auto"></i>
           </div>
-          <div id="shape-c" class="row ic" style="height: 8vh">
+          <div id="shape-c" class="row ic bg-primary" style="height: 8vh">
             <i class="fas ic fa-circle" style="margin: 0 auto"></i>
           </div>
           <div id="shape-s" class="row ic bg-primary" style="height: 8vh">
@@ -63,29 +64,50 @@
           </div>
         </div>
         <div class="col-6 bg-info">
-          <div class="row ic" style="height: 22vh;">
-            <canvas width="90px"
-            height="90px"
-            style="margin: auto; background-color: bisque">
-            canvas not supported.
+          <div class="row ic" style="height: 22vh">
+            <canvas
+              id="canvas2"
+              width="100px"
+              height="100px"
+              style="margin: auto; background-color: bisque"
+            >
+              canvas not supported.
             </canvas>
           </div>
-          <div class="row bg-warning" style="height: 10vh;"">
-            <div class="col-6 ic"><i class="fas fa-arrow-left" style="margin: 0 auto"></i></div>
-            <div class="col-6 ic"><i class="fas fa-arrow-right" style="margin: 0 auto"></i></div>
+          <div class="row bg-warning" style="height: 10vh">
+            <div class="col-6 ic ya">
+              <i class="fas fa-arrow-left" style="margin: 0 auto"></i>
+            </div>
+            <div class="col-6 ic ya">
+              <i class="fas fa-arrow-right" style="margin: 0 auto"></i>
+            </div>
           </div>
         </div>
-        <div id="us-s" class="col-3 bg-primary">
-          <div class="row ic" style="height: 8vh">
+        <div class="col-3 bg-primary">
+          <div id="us-s" class="row ic" style="height: 8vh">
             <i class="fas fa-arrow-down" style="margin: 0 auto"></i>
           </div>
-          <div id="color-r" class="row" style="height: 8vh; background-color: red"></div>
-          <div id="color-g" class="row" style="height: 8vh; background-color: green"></div>
-          <div id="color-b" class="row" style="height: 8vh; background-color: blue"></div>
+          <div
+            id="color-r"
+            class="row"
+            style="height: 8vh; background-color: red"
+          ></div>
+          <div
+            id="color-g"
+            class="row"
+            style="height: 8vh; background-color: rgb(12, 216, 12)"
+          ></div>
+          <div
+            id="color-b"
+            class="row"
+            style="height: 8vh; background-color: blue"
+          ></div>
         </div>
       </div>
     </main>
-    <footer style="height: 4vh; background-color: antiquewhite"></footer>
+    <footer
+      style="height: 4vh; background-color: antiquewhite; border-top: solid 2px"
+    ></footer>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

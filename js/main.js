@@ -1,11 +1,14 @@
 "use strict";
 
 {
-  const canvas = document.querySelector("canvas");
+  const canvas1 = document.getElementById("canvas1");
+  const canvas2 = document.getElementById("canvas2");
   // if (typeof canvas.getContext === "undefined") {
   //   return;
   // }
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas1.getContext("2d");
+  const ctx2 = canvas2.getContext("2d");
+  ctx2.save();
   ctx.translate(150, 100);
 
   class Enemy {
@@ -119,11 +122,56 @@
     attack.shape = "square";
   });
 
+  const weapon = (attack) => {
+    let i = 0;
+    ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+    if (attack.us == "s") {
+      i = 50;
+    }
+    switch (attack.color) {
+      case "red":
+        ctx2.fillStyle = "rgb(255,0,0)";
+        break;
+      case "green":
+        ctx2.fillStyle = "rgb(0,255,0)";
+        break;
+      case "blue":
+        ctx2.fillStyle = "rgb(0,0,255)";
+    }
+    switch (attack.shape) {
+      case "circle":
+        ctx2.beginPath();
+        ctx2.arc(
+          50,
+          25 + i,
+          20,
+          (0 * Math.PI) / 180,
+          (360 * Math.PI) / 180,
+          false
+        );
+        break;
+      case "square":
+        ctx2.beginPath();
+        ctx2.rect(30, 5 + i, 40, 40);
+        break;
+      case "triangle":
+        ctx2.beginPath();
+        ctx2.moveTo(50, 5 + i);
+        ctx2.lineTo(30, 45 + i);
+        ctx2.lineTo(70, 45 + i);
+    }
+    ctx2.fill();
+    if (attack.us == "s") {
+      ctx2.restore();
+    }
+  };
+
   {
     let loop = 0;
     let removeId = [];
     const game = () => {
-      ctx.clearRect(-150, -100, canvas.width, canvas.height);
+      weapon(attack);
+      ctx.clearRect(-150, -100, canvas1.width, canvas1.height);
       ctx.fillStyle = "rgba(251, 154, 196, 0.3)";
       ctx.fillRect(-20, -100, 40, 200);
       if (loop % 20 == 0) {

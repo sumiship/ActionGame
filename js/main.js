@@ -166,9 +166,39 @@
     }
   };
 
+  const shot = (attack, lr) => {
+    let enemy_us;
+    let enemy_lr;
+    enemies.forEach(function (enemy, index) {
+      enemy_us = "u";
+      enemy_lr = 10;
+      if (enemy.height == 50) {
+        enemy_us = "s";
+      }
+      if (enemy.lr == -150) {
+        enemy_lr = -10;
+      }
+      if (
+        enemy.lr == lr &&
+        enemy_us == attack.us &&
+        enemy.shape == attack.shape &&
+        enemy.color == attack.color
+      ) {
+        return index;
+      }
+    });
+  };
+
   {
     let loop = 0;
     let removeId = [];
+    document.getElementById("attack-r").addEventListener("click", () => {
+      removeId.push(shot(attack, 10));
+    });
+    document.getElementById("attack-l").addEventListener("click", () => {
+      removeId.push(shot(attack, -10));
+    });
+
     const game = () => {
       weapon(attack);
       ctx.clearRect(-150, -100, canvas1.width, canvas1.height);

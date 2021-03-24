@@ -1,6 +1,9 @@
 "use strict";
 
 {
+  let life = 12;
+  let score = 0;
+
   const canvas1 = document.getElementById("canvas1");
   const canvas2 = document.getElementById("canvas2");
   // if (typeof canvas.getContext === "undefined") {
@@ -166,37 +169,54 @@
     }
   };
 
-  const shot = (attack, lr) => {
-    let enemy_us;
-    let enemy_lr;
-    enemies.forEach(function (enemy, index) {
-      enemy_us = "u";
-      enemy_lr = 10;
-      if (enemy.height == 50) {
-        enemy_us = "s";
-      }
-      if (enemy.lr == -150) {
-        enemy_lr = -10;
-      }
-      if (
-        enemy.lr == lr &&
-        enemy_us == attack.us &&
-        enemy.shape == attack.shape &&
-        enemy.color == attack.color
-      ) {
-        return index;
-      }
-    });
-  };
-
   {
+    const shot = (attack, lr) => {
+      let enemy_us;
+      let enemy_lr;
+      enemies.forEach(function (enemy, index) {
+        enemy_us = "u";
+        enemy_lr = 1;
+        console.log(enemy.x, enemy.y);
+        if (enemy.y === 50) {
+          enemy_us = "s";
+        }
+        if (enemy.x < 0) {
+          enemy_lr = -1;
+        }
+        console.log(
+          enemy_lr,
+          lr,
+          enemy_us,
+          attack.us,
+          enemy.shape,
+          attack.shape,
+          enemy.color,
+          attack.color
+        );
+        if (
+          enemy_lr == lr &&
+          enemy_us == attack.us &&
+          enemy.shape == attack.shape &&
+          enemy.color == attack.color
+        ) {
+          console.log("success");
+          score++;
+          removeId.push(index);
+          return;
+        }
+      });
+      console.log("a");
+    };
+
     let loop = 0;
     let removeId = [];
     document.getElementById("attack-r").addEventListener("click", () => {
-      removeId.push(shot(attack, 10));
+      shot(attack, 1);
+      document.getElementById("score").innerHTML = score;
     });
     document.getElementById("attack-l").addEventListener("click", () => {
-      removeId.push(shot(attack, -10));
+      shot(attack, -1);
+      document.getElementById("score").innerHTML = score;
     });
 
     const game = () => {
@@ -212,14 +232,22 @@
         if (enemy.x < 0) {
           if (enemy.x >= -30) {
             removeId.push(0);
+            life--;
+            document.getElementById(
+              "life" + String(life + 1)
+            ).style.backgroundColor = "rgb(67, 64, 62)";
           } else {
-            enemy.x += 2;
+            enemy.x += 1;
           }
         } else {
           if (enemy.x <= 30) {
             removeId.push(0);
+            life--;
+            document.getElementById(
+              "life" + String(life + 1)
+            ).style.backgroundColor = "rgb(67, 64, 62)";
           } else {
-            enemy.x -= 2;
+            enemy.x -= 1;
           }
         }
       });
@@ -229,7 +257,7 @@
       removeId = [];
       loop++;
       var id = setTimeout(game, 50);
-      if (loop > 400) {
+      if (loop > 400 || life == 0) {
         clearTimeout(id);
       }
     };

@@ -8,3 +8,10 @@
 .ya {
   border: solid 2px;
 }
+
+.life {
+  background-color: rgb(228, 5, 61);
+  height: 6vh;
+  padding: 0;
+  border: solid 1px rgb(184, 211, 216);
+}

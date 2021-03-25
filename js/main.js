@@ -261,7 +261,7 @@
         if (loop > 10000 || life == 0) {
           clearTimeout(id);
           document.getElementById("start").innerHTML = "Restart";
-          document.getElementById("start").disable = false;
+          document.getElementById("start").disabled = false;
           document.getElementById("start").style.opacity = "1";
           aod = 1;
           ctx.fillStyle = "rgba(0, 0, 0, 0.6)";

@@ -26,10 +26,7 @@
 
   <body>
     <header style="height: 7vh; background-color: antiquewhite"></header>
-    <main
-      class="container"
-      style="height: 89vh; background-color: rgb(159, 192, 69)"
-    >
+    <main class="container" style="height: 89vh">
       <div class="row" style="height: 17vh; background-color: aqua">
         <div class="col">
           <div class="row" style="height: 6vh">
@@ -47,9 +44,41 @@
             <div id="life12" class="life col-1"></div>
           </div>
           <div class="row" style="height: 11vh">
-            <p style="margin: 0 auto; line-height: 11vh">
-              <span id="score"></span>Point
+            <div class="col-2" style="padding: 0">
+              <select
+                id="amount"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected value="1">並量</option>
+                <option value="2">多量</option>
+                <option value="0">少量</option>
+              </select>
+            </div>
+            <div class="col-2" style="padding: 0">
+              <select
+                id="speed"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected value="1">並速</option>
+                <option value="2">速い</option>
+                <option value="0">遅い</option>
+              </select>
+            </div>
+            <p class="col-4" style="line-height: 11vh; text-align: center">
+              <strong><span id="score"></span></strong> Point
             </p>
+            <div class="col-4" style="height: 11vh">
+              <button
+                id="start"
+                type="button"
+                class="btn btn-primary"
+                style="margin: 2vh"
+              >
+                Start
+              </button>
+            </div>
           </div>
         </div>
       </div>
